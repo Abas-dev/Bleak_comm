@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+{% include 'messages.html'   %}
 <form action="" method="post">
     {% csrf_token %}
 <div class="container">
@@ -19,12 +20,12 @@
               </div>
                <div class="card-body">
                  <label for="user">Username</label>
-                    <input type="text" class="form-control form-control-sm" id="user"/>
+                    <input type="text" class="form-control form-control-sm" name="username"/>
                  <label for="pass">Password</label>
-                    <input type="text" class="form-control form-control-sm" id="password"/>
+                    <input type="password" class="form-control form-control-sm" name="password"/>
               </div>
               <div class="card-footer">
-                <button class="btn btn-primary btn-block" id="login">Login</button>
+                <button class="btn btn-primary btn-block" >Login</button>
               </div>
           </div>
       </div>

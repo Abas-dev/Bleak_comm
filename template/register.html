@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+{% include 'messages.html' %}
 <form action="" method="post">
     {% csrf_token %}
 <div class="container">
@@ -19,20 +20,20 @@
               </div>
                <div class="card-body">
                     <label for="user">Username</label>
-                        <input type="text" class="form-control form-control-sm" id="user"/>
+                        <input type="text" class="form-control form-control-sm" name="uName" required/>
                     <label for="user">Emial</label>
-                        <input type="text" class="form-control form-control-sm" id="user"/>
+                        <input type="text" class="form-control form-control-sm" name="email" required/>
                     <label for="user">Firstname</label>
-                        <input type="text" class="form-control form-control-sm" id="user"/>
+                        <input type="text" class="form-control form-control-sm" name="fName"/>
                     <label for="user">Lastname</label>
-                        <input type="text" class="form-control form-control-sm" id="user"/> 
+                        <input type="text" class="form-control form-control-sm" name="lName"/> 
                     <label for="user">Password</label>
-                        <input type="password" class="form-control form-control-sm" id="password"/>       
+                        <input type="password" class="form-control form-control-sm" name="password" required/>       
                     <label for="pass">Password</label>
-                        <input type="password" class="form-control form-control-sm" id="password"/>
+                        <input type="password" class="form-control form-control-sm" name="passwordConf"/>
               </div>
               <div class="card-footer">
-                <button class="btn btn-primary btn-block" id="login">Login</button>
+                <button class="btn btn-primary btn-block">Register</button>
               </div>
           </div>
       </div>

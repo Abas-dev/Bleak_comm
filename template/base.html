@@ -29,18 +29,33 @@
                 <a class="nav-link" href="#">Pricing</a>
               </li>
             </ul>
-            
-            <ul class="nav justify-content-end" >
+          
+          {% if user.is_authenticated %}
+              <ul class="nav justify-content-end" >
                 <li class="nav-item">
-                  <a class="nav-link disabled"><i class="bi bi-cart4">4</i></a>
+                  <a class="nav-link" href="#" style="color: rgb(76, 64, 64);"><i class="bi bi-cart4">4</i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled">welcome abas isaac</i></a>
+                    <a class="nav-link disabled">welcome {{user.username}}</i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled">signout</i></a>
+                    <a class="nav-link" href="{% url 'authApp:logout' %}" style="color: rgb(76, 64, 64);">signout</a>
                 </li>
               </ul>
+              {% else %}
+              <ul class="nav justify-content-end" >
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'authApp:login' %}" style="color: rgb(76, 64, 64);">signin</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'authApp:register' %}" style="color: rgb(76, 64, 64);">signup</i></a>
+                </li>
+              </ul>
+          {% endif %}
+
+          
+            
+           
           </div>
         </div>
       </nav>
