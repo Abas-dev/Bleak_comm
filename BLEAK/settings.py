@@ -138,3 +138,7 @@ MESSAGE_TAGS = {
     messages.WARNING: 'warning',
     messages.ERROR: 'error',
 }
+
+
+LOGIN_URL = 'authApp:login'
+LOGIN_REDIRECT_URL = 'base:homePage'

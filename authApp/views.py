@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.views.generic.edit import CreateView
 from django.contrib import messages
 from django.shortcuts import redirect
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class UserRegistrationView(CreateView):
     template_name = 'register.html'
@@ -42,7 +42,8 @@ class UserLoginView(LoginView):
         else:
             messages.error(request,'cant login, try again.')
             return redirect('authApp:login')
-class UserLogoutView(LogoutView):
+        
+class UserLogoutView(LoginRequiredMixin,LogoutView):
     next_page = 'authApp:login'
 
     def dispatch(self, request, *args, **kwargs):
