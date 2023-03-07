@@ -40,14 +40,15 @@ class UserLoginView(LoginView):
             messages.success(request,'you have logged into your account')
             return redirect('base:homePage')
         else:
-            messages.error(request,'cant login, try again.')
+            messages.error(request,'cant login, check username or password')
             return redirect('authApp:login')
         
-class UserLogoutView(LoginRequiredMixin,LogoutView):
+class UserLogoutView(LoginRequiredMixin, LogoutView):
     next_page = 'authApp:login'
 
     def dispatch(self, request, *args, **kwargs):
         messages.info(request, "You have successfully logged out.")
-        return super().dispatch(request, *args, **kwargs)
+        return super(UserLogoutView, self).dispatch(request, *args, **kwargs)
+        
     
         
