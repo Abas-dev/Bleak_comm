@@ -122,14 +122,13 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_URL='/media/'
+MEDIA_ROOT=BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-
-
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'debug',
@@ -138,7 +137,6 @@ MESSAGE_TAGS = {
     messages.WARNING: 'warning',
     messages.ERROR: 'error',
 }
-
 
 LOGIN_URL = 'authApp:login'
 LOGIN_REDIRECT_URL = 'base:homePage'
