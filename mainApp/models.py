@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class Catergory(models.Model):
     name = models.CharField(max_length=100)
@@ -19,9 +19,11 @@ class Products(models.Model):
     def __str__(self):
         return self.productName
 
-# class Cart(models.Model):
-#     customer = ...
-#     product = ...
-#     quantity = ...    
+class Cart(models.Model):
+    customer = models.ForeignKey(User,on_delete=models.CASCADE)
+    product = models.ForeignKey(Products,on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+
+
 
 

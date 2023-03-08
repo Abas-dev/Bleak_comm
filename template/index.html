@@ -109,7 +109,12 @@
                                                 <p class="card-text">${{pro.productPrice}}</p>
                                                 
                                                 <a href="{% url 'base:productDetail' pro.id %}" class="btn details px-auto">view details</a><br />
-                                                <a href="#" class="btn cart px-auto">ADD TO CART</a>
+                                                <form action="/add_cart">
+                                                    {% csrf_token %}
+                                                    <input type="hidden" name="product_id" value="{{ pro.id }}">
+                                                    <button type="submit" class="btn cart px-auto">ADD TO CART</button>
+                                                </form>
+                                                
                                             </div>
                                         </div>
                                     </div>
