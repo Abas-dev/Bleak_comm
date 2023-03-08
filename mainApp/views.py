@@ -11,9 +11,20 @@ class HomePageView(LoginRequiredMixin,ListView):
     model = Products
     context_object_name = 'product'
 
+    def get_context_data(self, **kwargs):
+        context =super().get_context_data(**kwargs)
+        context['category'] = Catergory.objects.all()
+        return context
+
 class AboutPageView(LoginRequiredMixin,TemplateView):
     template_name = 'about.html'
 
 class ProductDetailView(LoginRequiredMixin,DetailView):
     template_name = 'productDetail.html'
+    model = Products
+    context_object_name = 'productDes'
 
+class CartPageView(LoginRequiredMixin,TemplateView):
+    template_name = 'cart.html' 
+   
+       
