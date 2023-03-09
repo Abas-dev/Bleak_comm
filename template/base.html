@@ -31,7 +31,7 @@
             </ul>
               <ul class="nav justify-content-end" >
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'base:cart' %}" style="color: rgb(76, 64, 64);"><i class="bi bi-cart4">4</i></a>
+                  <a class="nav-link" href="{% url 'base:cart' %}" style="color: rgb(76, 64, 64);"><i class="bi bi-cart4">{{cartNum}}</i></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled">welcome {{user.username}}</i></a>

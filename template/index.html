@@ -58,43 +58,18 @@
             <div class="row justify-content-center text-center">
                     <div class="col-md-8 col-lg-6">
                             <div class="header">
-                                    <h3>Products </h3>
+                                    <h3>Products</h3>
                             </div>
                     </div>
             </div>
 
            
             
-            <div class="row">
-                <div class="side">
-                <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
-                    <a href="/" class="d-flex align-items-left mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                      <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-                      <span class="fs-4">Categories</span>
-                    </a>
-                    <hr>
-                    <ul class="nav nav-pills flex-column mb-auto">
-                      <li class="nav-item">
-                        <a href="#" class="nav-link active" aria-current="page">
-                          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                          All
-                        </a>
-                      </li>
-                      {% for cat in category %}
-                        <li>
-                            <a href="#" class="nav-link text-white">
-                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-                            {{cat.name}}
-                            </a>
-                        </li>
-                      {% endfor %}
-                      
-                  </div>
-                </div>
-                
-                  <div class="b-example-divider b-example-vr"></div>    
-            {% for pro in product %}
-            
+            <div class="row">   
+            {% if product %}
+
+                    {% for pro in product %}
+                    
                     <!-- Single Product -->
                     <div class=" d-flex align-items-right col-md-6 col-lg-4 col-xl-3">
                             <div id="product-1" class="single-product">
@@ -122,7 +97,17 @@
                                 </div>
                             </div>
                     </div>
-                    {% endfor %}      
+                    {% endfor %}  
+            {% else %}
+                    <div class="row justify-content-center text-center">
+                        <div class="col-md-8 col-lg-6">
+                                <div class="header">
+                                        <h3>sorry, there is no product at the moment</h3>
+                                </div>
+                        </div>
+                     </div>
+
+            {% endif %}    
     </div>
     
     </div>

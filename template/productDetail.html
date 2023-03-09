@@ -21,7 +21,7 @@
                             
                             <div class="mt-4 mb-3">
                                 <h5 class="text-uppercase">{{productDes.productName}}</h5> 
-                                <span class="text-uppercase text-muted brand">Category: </span>
+                                <span class="text-uppercase text-muted brand">Category:{{productDes.productCategory.name}}</span>
                                 <div class="price d-flex flex-row align-items-center"> <span class="text-uppercase text-muted brand">Price: ${{productDes.productPrice}}</span>
                                 </div>
                                 <div class="price d-flex flex-row align-items-center"> <span class="text-uppercase text-muted brand">Quantity Available: {{productDes.quantityAvailable}}</span>
@@ -29,12 +29,10 @@
                             </div>
                             <span class="text-uppercase text-muted brand">product description: </span>
                             <p class="about">{{productDes.productDesc}}</p>
-                            <form action="" method="POST">
-                                <div class="sizes mt-5">
-                                    <h6 class="text-uppercase">Quantity</h6> <input type="number" id="quantity" name="quantity" min="1" max="{{productDes.quantityAvailable}}">
-                                </div>
-                            
-                                <div class="cart mt-4 align-items-center"> <button class="btn btn-dark text-uppercase mr-2 px-4">ADD TO CART</button></div>
+                            <form action="/add_cart">
+                                {% csrf_token %}
+                                <input type="hidden" name="product_id" value="{{ productDes.id }}">
+                                <div class="cart mt-4 align-items-center"> <button type="submit" class="btn btn-dark text-uppercase mr-2 px-4">ADD TO CART</button></div>
                             </form>
                             <div class="cart mt-4 align-items-center"> <a href="{% url 'base:homePage' %}" class="btn btn-dark text-uppercase mr-2 px-4">Back to home page</a></div>
                         </div>

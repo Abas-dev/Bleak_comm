@@ -22,7 +22,6 @@ class Products(models.Model):
 class Cart(models.Model):
     customer = models.ForeignKey(User,on_delete=models.CASCADE)
     product = models.ForeignKey(Products,on_delete=models.CASCADE)
-    quantity = models.IntegerField(default=1)
 
 
 
